@@ -1,17 +1,21 @@
 import Router from './Router';
 import Search from './controllers/Search';
-import Home from './controllers/Home';
+import Dashboard from './controllers/Dashboard';
 import Register from './controllers/Register';
-
+import Login from './controllers/Login';
 import './index.scss';
 
 const routes = [{
-  url: '/',
-  controller: Home
+  url: '/tableau-de-bord',
+  controller: Dashboard
 },
 {
-  url: '/register',
+  url: '/inscription',
   controller: Register
+},
+{
+  url: '/connexion',
+  controller: Login
 },
 {
   url: '/search',

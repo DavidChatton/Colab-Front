@@ -4,7 +4,7 @@
   "description": "env webpack vanilla node20",
   "main": "index.js",
   "scripts": {
-    "start": "npx webpack-dev-server --mode development",
+    "start": "npx webpack serve --config webpack.config.js --mode development",
     "dist": "npx webpack --mode production --progress=profile",
     "lint": "eslint ."
   },

@@ -1,5 +1,312 @@
-@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-h1 {
-  color: blue;
+* {
+  box-sizing: border-box!important;
+  margin: 0;
+  padding: 0;
+}
+/* ------------------------------------ NAVBAR --------------------------------- */
+.navbar {
+  font-size: 20px;
+  border-bottom: 1px solid #334155;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  background-color: white;
+}
+.navbar a {
+  color: #020440!important;
+  text-decoration: none;
+}
+.btn-connect {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .23);
+  font-size: 16px;
+  margin: 15px;
+  height: 38px;
+  width: 230px;
+  font-weight: 700;
+  background-color: white!important;
+  border-color:#020440;
+  border-radius: 15px;
+  color: #020440 !important;
+  border:1px solid #020440;
+  border-radius: 20px;
+}
+.btn-connect:hover {
+  background-color: #333E83!important;
+  color: white!important;
+  font-weight: 700;
+  box-shadow: none;
+}
+.btn-connect:hover a {
+  color: white!important;
+}
+
+@media screen and (max-width: 1020px) {
+  .navbar {
+  padding: 2.5rem 0;
+  }
+}
+/* ------------------------------------ REGISTER PAGE --------------------------------- */
+body {
+  min-height: 100vh;
+  margin: 0!important;
+  padding:0!important;
+  font-family: "Rubik", sans-serif;
+  /* linear-gradient(120deg, #745d5d, #745d5d); */
+}
+.register-img-bg {
+  position: relative;
+}
+.register-message {
+  position: absolute;
+  top:0;
+}
+.logo {
+  position: absolute;
+  top:0;
+}
+.register-img {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.register-wrapper {
+  perspective: 1000px;
+}
+.register-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  transition: transform 1s ease;
+}
+.fa-address-card {
+  margin-right: 0.4rem;
+}
+.register-title {
+  text-align: center;
+  color: #333E83;
+  margin-bottom: 2rem;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+}
+.input-group.password {
+  margin-bottom: 1rem;
+  display: flex;
+}
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+}
+.input-icon-eye {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+  cursor: pointer;
+}
+.error-password {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 90%;
+  margin: auto!important;
+  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-radius: 2rem!important;
+  border: none;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #f0f0f0;
+}
+.register-form input[type="password"] {
+  padding-right: 2.5rem;
+}
+.register-form input[type="text"]:focus,
+.register-form input[type="email"]:focus,
+.register-form input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f6d365;
+}
+.register-button {
+  display: block;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: #333E83;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.register-button:hover {
+  background-color: #3f51b5;
+}
+.register-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+.register-footer a {
+  color: #333E83;
+  text-decoration: none;
+}
+.register-footer a:hover {
+  text-decoration: underline;
+}
+.password-strength {
+  height: 5px;
+  width: 0%;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+/* ------------------------------------ LOGIN PAGE --------------------------------- */
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.bg-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./images/background-image.jpg');
+  position: relative;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.login-wrapper {
+  perspective: 1000px;
+}
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  transition: transform 1s ease;
+}
+.login-title {
+  text-align: center;
+  color: #333E83;
+  margin-bottom: 2rem;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.input-icon-login {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+}
+.input-icon-eye-login {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: #ff6b6b;
+  cursor: pointer;
+}
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 18rem;
+  margin: auto;
+  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-radius: 2rem!important;
+  border: none;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #f0f0f0;
+}
+.login-form input[type="password"] {
+  padding-right: 2.5rem;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f6d365;
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: #333E83;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.login-button:hover {
+  background-color: #3f51b5;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.login-footer a {
+  color: #333E83;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+/* ------------------------------------ DASHBOARD PAGE --------------------------------- */
+.dashboard-message {
+  background-color: #FF8A35;
+  color: white;
+  border-color: #FF7E22;
+}
+.message-image {
+  width: 15rem;
+}
+/* ------------------------------------ FOOTER --------------------------------- */
+footer {
+  padding-bottom: 4rem;
+}
+footer a {
+  text-decoration: none;
+  color: white;
 }

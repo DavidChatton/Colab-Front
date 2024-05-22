@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import viewPage from '../views/page';
-import viewListUsers from '../views/list-users';
 
 const Search = class {
   constructor(params) {
@@ -16,7 +15,6 @@ const Search = class {
     return `
       ${viewPage(`
         <div class="row list-users">
-        ${viewListUsers(this.data)}
       </div>
       `)}
     `;
