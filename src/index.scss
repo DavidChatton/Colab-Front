@@ -41,6 +41,13 @@
   color: white!important;
 }
 
+.nav-link.active {
+  color: #007bff;
+  font-weight: bold;
+  display: none;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1020px) {
   .navbar {
   padding: 2.5rem 0;
@@ -188,7 +195,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background-image: url('./images/background-image.jpg');
   position: relative;
 }
@@ -207,6 +213,7 @@ body {
   perspective: 1000px;
 }
 .login-card {
+  margin-top: 12rem;
   background: #fff;
   padding: 2rem;
   border-radius: 1rem;
@@ -309,4 +316,34 @@ footer {
 footer a {
   text-decoration: none;
   color: white;
+}
+/* ------------------------------------ FLATSHARE CHOICES PAGE --------------------------------- */
+.img-card-top {
+  max-height: 276px;
+  object-fit: cover;
+  width: 100%;
+}
+/* ------------------------------------ PROFIL PAGE --------------------------------- */
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+.btn-cancel {
+  background-color: #ff6b6b;
+  color: white;
+}
+.btn-save {
+  background-color: #ff7e00;
+  color: white;
+}
+.edit-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }

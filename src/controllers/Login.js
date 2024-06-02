@@ -1,3 +1,5 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import viewNav from '../views/nav';
 import viewLogin from '../views/login/login';
 
@@ -5,7 +7,6 @@ const Login = class {
   constructor(params) {
     this.el = document.querySelector('#root');
     this.params = params;
-
     this.run();
     this.attachEventListeners();
   }
@@ -32,6 +33,28 @@ const Login = class {
     } else {
       passwordInput.type = 'password';
       toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+  }
+
+  async handleSubmit(event) {
+    event.preventDefault();
+    console.log('Form submitted');
+
+    const form = document.getElementById('loginForm');
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await axios.post('http://localhost:81/login', data);
+      if (response.status === 200) {
+        Cookies.set('session_id', response.data.session_id, { path: '/' });
+        window.location.href = '/tableau-de-bord';
+        console.log('Login sucessful');
+      } else {
+        console.log(`Login failed: ${response.data.message}`);
+      }
+    } catch (error) {
+      console.log('An error occurred', error);
     }
   }
 
