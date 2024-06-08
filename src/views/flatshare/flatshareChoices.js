@@ -4,7 +4,7 @@ import img_createbackground from '../../images/create-flatsharing.jpg';
 const flatshareChoices = () => `
 <div class="container h-100 position-absolute top-50 start-50 translate-middle">
     <div class="row justify-content-center align-items-center h-100">
-      <div class="col-md-6 col-lg-4 mb-4 colocation-card ">
+      <div class="col-md-6 col-lg-4 mb-4 colocation-card" id="join-card">
         <div class="card text-center">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="${img_joinbackground}" class="img-fluid img-card-top" />
@@ -21,8 +21,8 @@ const flatshareChoices = () => `
           </div>
         </div>
       </div>
-  
-      <div class="col-md-6 col-lg-4 mb-4 colocation-card ">
+
+      <div class="col-md-6 col-lg-4 mb-4 colocation-card" id="create-card">
         <div class="card text-center">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="${img_createbackground}" class="img-fluid img-card-top"/>
@@ -42,4 +42,5 @@ const flatshareChoices = () => `
     </div>
   </div>
 `;
+
 export default flatshareChoices;

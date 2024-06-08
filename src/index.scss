@@ -47,6 +47,9 @@
   display: none;
   text-decoration: underline;
 }
+.btn-logout {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1020px) {
   .navbar {
@@ -80,6 +83,7 @@ body {
 }
 .register-wrapper {
   perspective: 1000px;
+  margin-top: 5rem;
 }
 .register-card {
   background: #fff;
@@ -322,6 +326,17 @@ footer a {
   max-height: 276px;
   object-fit: cover;
   width: 100%;
+}
+.colocation-card {
+  cursor: pointer;
+}
+/* ------------------------------------ CREATE FLATSHARE PAGE --------------------------------- */
+.create-flatshare-logo {
+  width: 150px;
+  height: 150px;
+}
+.img-create-flatshare {
+  min-height: 100%;
 }
 /* ------------------------------------ PROFIL PAGE --------------------------------- */
 .profile-picture {

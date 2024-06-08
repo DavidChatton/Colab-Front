@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import viewNav from '../views/nav';
 import viewRegister from '../views/register/register';
 
@@ -80,6 +81,7 @@ const Register = class {
       const response = await axios.post('http://localhost:81/registration', data);
 
       if (response.status === 201) {
+        Cookies.set('user_id', response.data.user_id, { expires: 1, path: '' });
         window.location.href = '/choix-colocation';
         console.log('Registration successful', 'success');
       } else {

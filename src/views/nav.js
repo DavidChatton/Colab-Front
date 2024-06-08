@@ -40,9 +40,8 @@ const nav = (isLoggedIn) => (`
           <a class="nav-link" href="/profil"><i class="fa-solid fa-user"></i></a>
           </li>
         ` : ''}
-        <button id="btn-logout" class="btn-logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i> Se déconnecter
-        </button>` : `
+        <i id="btn-logout" class="fa-solid fa-arrow-right-from-bracket btn-logout"></i>
+        ` : `
         <button id="btn-register" class="btn-connect">
           <a href="/inscription" class="my-link">S'inscrire / Se connecter</a>
         </button>`}
