@@ -79,9 +79,9 @@ const Register = class {
 
     try {
       const response = await axios.post('http://localhost:81/registration', data);
-
+      console.log(response.data);
       if (response.status === 201) {
-        Cookies.set('user_id', response.data.user_id, { expires: 1, path: '' });
+        Cookies.set('user_id', response.data.user_id, { expires: 30, path: '' });
         window.location.href = '/choix-colocation';
         console.log('Registration successful', 'success');
       } else {
@@ -90,7 +90,7 @@ const Register = class {
     } catch (error) {
       console.log('An error occurred', error);
     } finally {
-      // Réactiver le bouton de soumission après la tentative de soumission
+    // Réactiver le bouton de soumission après la tentative de soumission
       submitButton.disabled = false;
     }
   }

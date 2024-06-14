@@ -1,122 +1,47 @@
-<section class="vh-100 gradient-custom-2">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-12 col-xl-10">
-
-        <div class="card mask-custom">
-          <div class="card-body p-4 text-white">
-
-            <div class="text-center pt-3 pb-2">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webp"
-                alt="Check" width="60">
-              <h2 class="my-4">Task List</h2>
-            </div>
-
-            <table class="table text-white mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Team Member</th>
-                  <th scope="col">Task</th>
-                  <th scope="col">Priority</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="fw-normal">
-                  <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                      alt="avatar 1" style="width: 45px; height: auto;">
-                    <span class="ms-2">Alice Mayer</span>
-                  </th>
-                  <td class="align-middle">
-                    <span>Call Sam For payments</span>
-                  </td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-tooltip-init title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-tooltip-init title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                  <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                      alt="avatar 1" style="width: 45px; height: auto;">
-                    <span class="ms-2">Kate Moss</span>
-                  </th>
-                  <td class="align-middle">Make payment to Bluedart</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-success">Low priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-tooltip-init title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-tooltip-init title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                  <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                      alt="avatar 1" style="width: 45px; height: auto;">
-                    <span class="ms-2">Danny McChain</span>
-                  </th>
-                  <td class="align-middle">Office rent</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-warning">Middle priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-tooltip-init title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-tooltip-init title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                  <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                      alt="avatar 1" style="width: 45px; height: auto;">
-                    <span class="ms-2">Alexa Chung</span>
-                  </th>
-                  <td class="align-middle">Office grocery shopping</td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-tooltip-init title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-tooltip-init title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                  <th class="border-0">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                      alt="avatar 1" style="width: 45px; height: auto;">
-                    <span class="ms-2">Ben Smith</span>
-                  </th>
-                  <td class="border-0 align-middle">Ask for Lunch to Clients</td>
-                  <td class="border-0 align-middle">
-                    <h6 class="mb-0"><span class="badge bg-success">Low priority</span></h6>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a href="#!" data-mdb-tooltip-init title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-tooltip-init title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-
-          </div>
-        </div>
-
-      </div>
+const taskList = () => `
+<div class="container mt-5">
+  <h1>Task Management System</h1>
+  <form id="taskForm" class="mb-4">
+    <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input type="text" class="form-control" id="taskName" name="task_name" required>
     </div>
-  </div>
-</section>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="task_description" required>
+    </div>
+    <div class="mb-3">
+      <label for="deadline" class="form-label">Deadline</label>
+      <input type="date" class="form-control" id="deadline_spot" name="deadline_spot" required>
+    </div>
+    <div class="mb-3">
+      <label for="priority" class="form-label">Priority</label>
+      <select class="form-control" id="task_priority" name="task_priority" required>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <input type="text" class="form-control" id="task_category" name="task_category" required>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-control" id="status" name="status" required>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="userId" class="form-label">User ID</label>
+      <input type="number" class="form-control" id="user_id" name="user_id" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Task</button>
+  </form>
+
+  <div id="tasksTable"></div>
+</div>
+`;
+
+export default taskList;

@@ -1,5 +1,4 @@
 import Router from './Router';
-import Search from './controllers/Search';
 import Dashboard from './controllers/Dashboard';
 import Register from './controllers/Register';
 import Login from './controllers/Login';
@@ -8,6 +7,8 @@ import CreateFlatshare from './controllers/CreateFlatshare';
 import JoinFlatshare from './controllers/JoinFlatshare';
 import Calendar from './controllers/Calendar';
 import Profil from './controllers/Profil';
+import Messages from './controllers/Messages';
+import Tasks from './controllers/Tasks';
 import './index.scss';
 
 const routes = [{
@@ -43,8 +44,12 @@ const routes = [{
   controller: Profil
 },
 {
-  url: '/search',
-  controller: Search
+  url: '/mes-taches',
+  controller: Tasks
+},
+{
+  url: '/mes-messages',
+  controller: Messages
 }];
 
 new Router(routes);

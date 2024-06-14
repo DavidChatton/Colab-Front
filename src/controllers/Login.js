@@ -48,8 +48,10 @@ const Login = class {
       const response = await axios.post('http://localhost:81/login', data);
       if (response.status === 200) {
         Cookies.set('session_id', response.data.session_id, { path: '/' });
-        window.location.href = '/tableau-de-bord';
+        Cookies.set('user_id', response.data.user_id, { expires: 30 });
+        Cookies.set('flatshare_id', response.data.flatshare_id, { expires: 30 });
         console.log('Login sucessful');
+        window.location.href = '/tableau-de-bord';
       } else {
         console.log(`Login failed: ${response.data.message}`);
       }

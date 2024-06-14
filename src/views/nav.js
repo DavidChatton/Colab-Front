@@ -17,7 +17,7 @@ const nav = (isLoggedIn) => (`
         ` : ''}
         ${window.location.pathname !== '/taches' ? `
           <li class="nav-item">
-            <a class="nav-link" href="/tableau-de-bord">Mes Taches</a>
+            <a class="nav-link" href="/mes-taches">Mes Taches</a>
           </li>
         ` : ''}
         ${window.location.pathname !== '/depenses' ? `
@@ -27,7 +27,7 @@ const nav = (isLoggedIn) => (`
         ` : ''}
         ${window.location.pathname !== '/messages' ? `
           <li class="nav-item">
-            <a class="nav-link" href="/tableau-de-bord">Messages</a>
+            <a class="nav-link" href="/mes-messages">Messages</a>
           </li>
         ` : ''}
         ${window.location.pathname !== '/tableau-de-bord' ? `
