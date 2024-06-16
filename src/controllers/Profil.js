@@ -42,9 +42,21 @@ const Profil = class {
     const logoutButton = document.getElementById('btn-logout');
     if (logoutButton) {
       logoutButton.addEventListener('click', async () => {
-        await axios.post('http://localhost:81/logout', { session_id: Cookies.get('session_id') });
-        Cookies.remove('session_id');
-        window.location.href = '/connexion';
+        try {
+          const response = await axios.post('http://localhost:81/logout', { session_id: Cookies.get('session_id') });
+          if (response.status === 200) {
+            // Supprimer tous les cookies pertinents
+            Cookies.remove('session_id', { path: '/' });
+            Cookies.remove('user_id', { path: '/' });
+            Cookies.remove('flatshare_id', { path: '/' });
+
+            window.location.href = '/connexion';
+          } else {
+            console.error('Failed to logout', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error during logout', error);
+        }
       });
     }
   }

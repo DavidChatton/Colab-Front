@@ -1,4 +1,4 @@
-import viewMessage from './message';
+import viewMessage from './messages';
 import viewCalendar from './calendar';
 import viewExpense from './expenses';
 import viewTasks from './tasks';

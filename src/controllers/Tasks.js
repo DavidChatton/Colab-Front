@@ -1,5 +1,8 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { TabulatorFull as Tabulator } from 'tabulator-tables';
+import checkSession from './CheckSession';
+import viewNavbar from '../views/nav';
 import taskList from '../views/tasklist';
 
 const Tasks = class {
@@ -13,15 +16,26 @@ const Tasks = class {
 
   // Methode asynchrone
   async init() {
-    this.render();
+    // Vérifier la session
+    const sessionCheck = await checkSession();
+    if (sessionCheck.status !== 'success') {
+      window.location.href = '/connexion';
+      return;
+    }
     await this.loadUsers();
+    this.render();
     this.populateUserDropdown();
     this.attachEventListeners();
     this.initializeDataTable();
   }
 
   render() {
-    this.el.innerHTML = taskList();
+    const sessionId = Cookies.get('session_id');
+    const isLoggedIn = !!sessionId;
+    this.el.innerHTML = `
+      ${viewNavbar(isLoggedIn)}
+      ${taskList()}
+    `;
   }
 
   // Remplit le menu déroulant des utilisateurs.
@@ -149,6 +163,29 @@ const Tasks = class {
         break;
     }
     return `<span style="color: ${color};">${value}</span>`;
+  }
+
+  attachLogoutEvent() {
+    const logoutButton = document.getElementById('btn-logout');
+    if (logoutButton) {
+      logoutButton.addEventListener('click', async () => {
+        try {
+          const response = await axios.post('http://localhost:81/logout', { session_id: Cookies.get('session_id') });
+          if (response.status === 200) {
+            // Supprimer tous les cookies pertinents
+            Cookies.remove('session_id', { path: '/' });
+            Cookies.remove('user_id', { path: '/' });
+            Cookies.remove('flatshare_id', { path: '/' });
+
+            window.location.href = '/connexion';
+          } else {
+            console.error('Failed to logout', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error during logout', error);
+        }
+      });
+    }
   }
 };
 

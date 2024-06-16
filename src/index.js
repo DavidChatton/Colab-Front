@@ -7,7 +7,7 @@ import CreateFlatshare from './controllers/CreateFlatshare';
 import JoinFlatshare from './controllers/JoinFlatshare';
 import Calendar from './controllers/Calendar';
 import Profil from './controllers/Profil';
-import Messages from './controllers/Messages';
+import Message from './controllers/Message';
 import Tasks from './controllers/Tasks';
 import './index.scss';
 
@@ -48,8 +48,8 @@ const routes = [{
   controller: Tasks
 },
 {
-  url: '/mes-messages',
-  controller: Messages
+  url: '/cree-un-message',
+  controller: Message
 }];
 
 new Router(routes);

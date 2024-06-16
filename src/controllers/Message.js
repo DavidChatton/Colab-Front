@@ -2,9 +2,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import checkSession from './CheckSession';
 import viewNavbar from '../views/nav';
-import viewDashboard from '../views/dashboard/dashboard';
+import viewMessage from '../views/message';
 
-const Dashboard = class {
+const Message = class {
   constructor(params) {
     this.el = document.querySelector('#root');
     this.params = params;
@@ -20,13 +20,6 @@ const Dashboard = class {
     }
     // Continuer l'initialisation si la session est valide
     this.run();
-  }
-
-  attachRegisterEvent() {
-    document.getElementById('btn-register').addEventListener('click', (event) => {
-      event.preventDefault();
-      window.location.href = '/inscription';
-    });
   }
 
   attachLogoutEvent() {
@@ -52,23 +45,43 @@ const Dashboard = class {
     }
   }
 
+  attachFormSubmitHandler() {
+    const form = document.getElementById('messageForm');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await axios.post('http://localhost:81/messages', data);
+        if (response.status === 200) {
+          console.log('Message sent successfully', response.data);
+          form.reset();
+        } else {
+          console.error('Failed to send message', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error sending message', error);
+      }
+    });
+  }
+
   render() {
     const sessionId = Cookies.get('session_id');
     const isLoggedIn = !!sessionId;
-    return `
-    ${viewNavbar(isLoggedIn)}
-    ${viewDashboard()}
+    this.el.innerHTML = `
+      ${viewNavbar(isLoggedIn)}
+      ${viewMessage()}
     `;
   }
 
   run() {
-    this.el.innerHTML = this.render();
-    if (!Cookies.get('session_id')) {
-      this.attachRegisterEvent();
-    } else {
+    this.render();
+    this.attachFormSubmitHandler();
+    if (Cookies.get('session_id')) {
       this.attachLogoutEvent();
     }
   }
 };
 
-export default Dashboard;
+export default Message;

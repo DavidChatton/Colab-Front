@@ -15,7 +15,7 @@ const nav = (isLoggedIn) => (`
         <a class="nav-link" href="/evenements">Evenements</a>
       </li>
         ` : ''}
-        ${window.location.pathname !== '/taches' ? `
+        ${window.location.pathname !== '/mes-taches' ? `
           <li class="nav-item">
             <a class="nav-link" href="/mes-taches">Mes Taches</a>
           </li>
@@ -25,9 +25,9 @@ const nav = (isLoggedIn) => (`
             <a class="nav-link" href="/tableau-de-bord">Mes depenses</a>
           </li>
         ` : ''}
-        ${window.location.pathname !== '/messages' ? `
+        ${window.location.pathname !== '/cree-un-message' ? `
           <li class="nav-item">
-            <a class="nav-link" href="/mes-messages">Messages</a>
+            <a class="nav-link" href="/cree-un-message">Message</a>
           </li>
         ` : ''}
         ${window.location.pathname !== '/tableau-de-bord' ? `
