@@ -60,8 +60,6 @@ const Profil = class {
         try {
           const userId = Cookies.get('user_id');
           const response = await axios.put(`http://localhost:81/profil/${userId}`, data);
-          console.log('user.firstname');
-          console.log('user.access_code');
           console.log('Profile updated successfully', response.data);
         } catch (error) {
           console.error('Error updating profile', error);

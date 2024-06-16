@@ -7,23 +7,17 @@ const profil = (data) => (`
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" value="${data.firstname}" readonly autocomplete="off">
+                <input type="text" class="form-control" id="firstName" name="firstname" value="${data.firstname}" readonly autocomplete="off">
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" value="${data.lastname}"autocomplete="off">
+                <input type="text" class="form-control" id="lastName" name="lastname" value="${data.lastname}"autocomplete="off">
             </div>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <div class="input-group">
-                <input type="email" class="form-control" id="email" value="${data.email}"autocomplete="off"> 
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <div class="input-group">
-                <input type="password" class="form-control" id="password" value="${data.password}" autocomplete="off">
+                <input type="email" class="form-control" id="email" name="email" value="${data.email}"autocomplete="off"> 
             </div>
         </div>
         <div class="form-group">
